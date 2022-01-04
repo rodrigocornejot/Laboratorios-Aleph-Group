@@ -1,5 +1,4 @@
-<?php require_once 'funciones/sesion.php';
-include_once "funciones/conexion.php";?>
+<?php include_once "funciones/conexion.php";?>
 <!DOCTYPE html>
 <html>
 
@@ -10,23 +9,3 @@ include_once "funciones/conexion.php";?>
 	<title>Laboratorios</title>
 </head>
 
-<body>
-	<div class="container d-flex align-items-center justify-content-between" style="height : 100%">
-		<a href="index.php">
-            <img src="imagenes/aleph.png" width="200">
-		</a>
-		<div class="text-primary fs-1">
-				Bienvenido 
-		</div>
-		<?php if ($_SESSION['admin']==1): ?>
-		<div class="dropdown bg-dark">
-			<a class="btn btn-secondary dropdown-toggle position-relative" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-					<i class="fas fa-bell"></i>
-    		</a>
-		</div>
-			<?php endif; ?>
-			<form action="controlador/ControladorLogin.php" method="POST" class="d-flex justify-content-end">
-				<input type="hidden" name="tipo" value="logout">
-				<button type="submit" class="btn btn-danger">Cerrar sesion</button>
-			</form>
-		</div>
