@@ -41,9 +41,17 @@ $s_3 = $_POST['s_3'];
 $s_4 = $_POST['s_4'];
 $s_5 = $_POST['s_5'];
 
-$sql="insert into temperatura (temp_1, temp_2, temp_3, temp_4, temp_5, hr_1, hr_2, hr_3, hr_4, hr_5, hpa_1, hpa_2, hpa_3, hpa_4, hpa_5, c_1, c_2, c_3, c_4, c_5, s_1, s_2, s_3, s_4, s_5) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+//fecha
+
+$fecha1 = $_POST['fecha1'];
+$fecha2 = $_POST['fecha2'];
+$fecha3 = $_POST['fecha3'];
+$fecha4 = $_POST['fecha4'];
+$fecha5 = $_POST['fecha5'];
+
+$sql="insert into temperatura (temp_1, temp_2, temp_3, temp_4, temp_5, hr_1, hr_2, hr_3, hr_4, hr_5, hpa_1, hpa_2, hpa_3, hpa_4, hpa_5, c_1, c_2, c_3, c_4, c_5, s_1, s_2, s_3, s_4, s_5, fecha1, fecha2, fecha3, fecha4, fecha5) values (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 $stmt=$conexion->prepare($sql);
-$stmt->bind_param("dddddiiiiiiiiiidddddiiiii",$tem_1,$tem_2,$tem_3,$tem_4,$tem_5,$hr_1,$hr_2,$hr_3,$hr_4,$hr_5,$hpa_1,$hpa_2,$hpa_3,$hpa_4,$hpa_5,$c_1,$c_2,$c_3,$c_4,$c_5,$s_1,$s_2,$s_3,$s_4,$s_5);
+$stmt->bind_param("dddddiiiiiiiiiidddddiiiiisssss",$tem_1,$tem_2,$tem_3,$tem_4,$tem_5,$hr_1,$hr_2,$hr_3,$hr_4,$hr_5,$hpa_1,$hpa_2,$hpa_3,$hpa_4,$hpa_5,$c_1,$c_2,$c_3,$c_4,$c_5,$s_1,$s_2,$s_3,$s_4,$s_5,$fecha1,$fecha2,$fecha3,$fecha4,$fecha5);
 if($stmt->execute()){
 	header("Location: ../calibracion.php");
 }else{
