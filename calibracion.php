@@ -3,8 +3,8 @@
 $sql="select * FROM temperatura";
 $resultado=$conexion->query($sql);
 
-$sql="select * FROM electrometro";
-$resultado_electrometro=$conexion->query($sql);
+$sql_electrometro="select * FROM electrometro";
+$resultado_electrometro=$conexion->query($sql_electrometro);
 
 ?>
 <!DOCTYPE html>
@@ -15,10 +15,35 @@ $resultado_electrometro=$conexion->query($sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <link rel="stylesheet" href="css/style.css"/>
-    <title>Document</title>
+    <title>CALIBRACION</title>
 </head>
 <body>
-<h1>CALCULOS</h1>
+<h1>TOMA DE DATOS PATRON DEL ALEPH SAC</h1>
+<div class="card-body">
+    <div class="toolbar">
+        <table class="table-responsive" border="1">
+            <thead>
+                <tr class="table-secondary">
+                    <th colspan="8">Electrometro</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php while($filas=$resultado_electrometro->fetch_assoc()):?>
+                <tr>
+                    <td colspan="8">
+                        <label>Marca: </label><?php echo $filas['marca_e']?>
+                        <label>Modelo: </label><?php echo $filas['modelo_e']?>
+                        <label>Serie: </label><?php echo $filas['serie_e']?>
+                        <label>Certificado: </label><?php echo $filas['certificado_e']?>
+                        <label>Fecha: </label><?php echo $filas['fecha_e']?>
+                    </td>
+                </tr>
+            </tbody>
+            <?php endwhile ?>
+        </table>
+    </div>
+</div>
+
 <div class="card-body">
     <div class="toolbar">
         <table class="table-responsive" border="1">
@@ -438,7 +463,7 @@ $resultado_electrometro=$conexion->query($sql);
                     ?>
                     </td>
                     <td> -</td>
-                    <td></td>
+                    <td> -</td>
                     <td></td>
                     <td></td>
                     <td></td>
